@@ -1,8 +1,11 @@
+import unidecode
+
 def chiffrement_cesar(texte, decalage):
-    # Fonction de chiffrement
+    # Utilisation de unidecode pour supprimer les accents
+    texte = unidecode.unidecode(texte)
     resultat = []
     for caractere in texte:
-        if caractere.isalpha():
+        if caractere.isalpha():  # Si c'est une lettre
             decalage_base = 65 if caractere.isupper() else 97
             nouvelle_lettre = chr((ord(caractere) - decalage_base + decalage) % 26 + decalage_base)
             resultat.append(nouvelle_lettre)
@@ -11,7 +14,6 @@ def chiffrement_cesar(texte, decalage):
     return ''.join(resultat)
 
 def dechiffrement_cesar(texte, decalage):
-    # Fonction de déchiffrement
     return chiffrement_cesar(texte, -decalage)
 
 # Pour tester / éxécuter dans le terminal

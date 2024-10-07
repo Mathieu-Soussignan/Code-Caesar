@@ -18,3 +18,4 @@ pytest
 redmail
 tzdata==2024.1
 streamlit
+unidecode
